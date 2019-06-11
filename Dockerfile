@@ -220,6 +220,9 @@ RUN set -ex \
 # Add composer
 COPY composer /usr/local/bin/composer
 
+# Install pdo_mysql
+RUN docker-php-ext-install pdo_mysql
+
 # Override stop signal to stop process gracefully
 # https://github.com/php/php-src/blob/17baa87faddc2550def3ae7314236826bc1b1398/sapi/fpm/php-fpm.8.in#L163
 STOPSIGNAL SIGQUIT
